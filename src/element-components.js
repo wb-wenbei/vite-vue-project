@@ -1,0 +1,207 @@
+import {
+  ElAlert,
+  ElAside,
+  ElAutocomplete,
+  ElAvatar,
+  ElBacktop,
+  ElBadge,
+  ElBreadcrumb,
+  ElBreadcrumbItem,
+  ElButton,
+  ElButtonGroup,
+  ElCalendar,
+  ElCard,
+  ElCarousel,
+  ElCarouselItem,
+  ElCascader,
+  ElCascaderPanel,
+  ElCheckbox,
+  ElCheckboxButton,
+  ElCheckboxGroup,
+  ElCol,
+  ElCollapse,
+  ElCollapseItem,
+  ElCollapseTransition,
+  ElColorPicker,
+  ElContainer,
+  ElDatePicker,
+  ElDialog,
+  ElDivider,
+  ElDrawer,
+  ElDropdown,
+  ElDropdownItem,
+  ElDropdownMenu,
+  ElFooter,
+  ElForm,
+  ElFormItem,
+  ElHeader,
+  ElIcon,
+  ElImage,
+  ElInput,
+  ElInputNumber,
+  ElLink,
+  ElMain,
+  ElMenu,
+  ElMenuItem,
+  ElMenuItemGroup,
+  ElOption,
+  ElOptionGroup,
+  ElPageHeader,
+  ElPagination,
+  ElPopconfirm,
+  ElPopover,
+  ElPopper,
+  ElProgress,
+  ElRadio,
+  ElRadioButton,
+  ElRadioGroup,
+  ElRate,
+  ElRow,
+  ElScrollbar,
+  ElSelect,
+  ElSlider,
+  ElStep,
+  ElSteps,
+  ElSubmenu,
+  ElSwitch,
+  ElTabPane,
+  ElTable,
+  ElTableColumn,
+  ElTabs,
+  ElTag,
+  ElTimePicker,
+  ElTimeSelect,
+  ElTimeline,
+  ElTimelineItem,
+  ElTooltip,
+  ElTransfer,
+  ElTree,
+  ElUpload,
+  ElInfiniteScroll,
+  ElLoading,
+  ElMessage,
+  ElMessageBox,
+  ElNotification,
+} from "element-plus";
+import lang from "element-plus/lib/locale/lang/zh-cn";
+import "dayjs/locale/zh-cn";
+import locale from "element-plus/lib/locale";
+
+export function useElementComponents(app) {
+  setElementOption(app);
+  setElementLang(app);
+  setElementComponents(app);
+  setElementPlugins(app);
+}
+
+export function setElementLang(lang = lang) {
+  locale.use(lang);
+}
+
+export function setElementOption(app, option) {
+  app.config.globalProperties.$ELEMENT = Object.assign(
+    { size: "small", zIndex: 2000 },
+    option
+  );
+}
+
+function setElementComponents(app) {
+  const components = [
+    ElAlert,
+    ElAside,
+    ElAutocomplete,
+    ElAvatar,
+    ElBacktop,
+    ElBadge,
+    ElBreadcrumb,
+    ElBreadcrumbItem,
+    ElButton,
+    ElButtonGroup,
+    ElCalendar,
+    ElCard,
+    ElCarousel,
+    ElCarouselItem,
+    ElCascader,
+    ElCascaderPanel,
+    ElCheckbox,
+    ElCheckboxButton,
+    ElCheckboxGroup,
+    ElCol,
+    ElCollapse,
+    ElCollapseItem,
+    ElCollapseTransition,
+    ElColorPicker,
+    ElContainer,
+    ElDatePicker,
+    ElDialog,
+    ElDivider,
+    ElDrawer,
+    ElDropdown,
+    ElDropdownItem,
+    ElDropdownMenu,
+    ElFooter,
+    ElForm,
+    ElFormItem,
+    ElHeader,
+    ElIcon,
+    ElImage,
+    ElInput,
+    ElInputNumber,
+    ElLink,
+    ElMain,
+    ElMenu,
+    ElMenuItem,
+    ElMenuItemGroup,
+    ElOption,
+    ElOptionGroup,
+    ElPageHeader,
+    ElPagination,
+    ElPopconfirm,
+    ElPopover,
+    ElPopper,
+    ElProgress,
+    ElRadio,
+    ElRadioButton,
+    ElRadioGroup,
+    ElRate,
+    ElRow,
+    ElScrollbar,
+    ElSelect,
+    ElSlider,
+    ElStep,
+    ElSteps,
+    ElSubmenu,
+    ElSwitch,
+    ElTabPane,
+    ElTable,
+    ElTableColumn,
+    ElTabs,
+    ElTag,
+    ElTimePicker,
+    ElTimeSelect,
+    ElTimeline,
+    ElTimelineItem,
+    ElTooltip,
+    ElTransfer,
+    ElTree,
+    ElUpload,
+  ];
+
+  components.forEach((component) => {
+    app.component(component.name, component);
+  });
+}
+
+function setElementPlugins(app) {
+  const plugins = [
+    ElInfiniteScroll,
+    ElLoading,
+    ElMessage,
+    ElMessageBox,
+    ElNotification,
+  ];
+
+  plugins.forEach((plugin) => {
+    app.use(plugin);
+  });
+}
